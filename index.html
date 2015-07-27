@@ -1,26 +1,45 @@
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <title></title>
-    <script type="text/javascript" src="http://www.autocadws.com/jsapi/v2/Autodesk.AutoCAD.js"></script>
+<!--引入AutoCAD JS基本库 -->
+<script type="text/javascript" src="https://df-prod.autocad360.com/jsapi/v3/Autodesk.AutoCAD.js"></script>
+<!--引入自定义JS库 -->
+<script type="text/javascript" src="MyTest.js" ></script>  
 </head>
 
 <body>
-     
-    <div><input id="Button1" type="button" value="button" /></div>
-    
+ 
+<h3>My Test</h3>
+<!-- 定义控件 -->
+<!-- 系统变量名 -->
+<input type='text' id='sysvarname' value='sys name' />
+<!-- 获取系统变量的值 -->
+<input type='button' onclick='getSysvar()' value='get sys value'/><br />   
+<!--显示系统变量的值 -->
+<input type='text' id='sysvarvalue' value='' />
+<!--设置系统变量的值 -->
+<input type='button' onclick='setSysvar()' value='set sys value'/><br />   
+<hr />
+<!--启动画圆命令 -->
+<input type='button' onclick='execCircle()' value='send command'/><br />   
+<!--获取层表记录 -->
+<input type='button' onclick='getLayer()' value='get Layer'/><br />  
+<!--获取用户输入数值或关键字 -->
+<input type='button' onclick='getDouble()' value='get double'/><br />  
+<!--获取用户选择实体 -->
+<input type='button' onclick='getEntity()' value='get entity'/><br />  
+ 
+<!--委托实体修改反应器 -->
+<input type='button' onclick='startReactor()' value='start Reactor'/><br />  
+<!--撤销实体修改反应器 -->
+<input type='button' onclick='stopReactor()' value='stop Reactor'/><br />
+
+<!--调用.NET函数 -->
+<input type='button' onclick='execNETFunc()' value='execute .NET fun'/><br />  
+
+
+<textarea id="testTextArea" cols="50" rows="10"></textarea>
+
+  
 
 </body>
-<script>
-    function test() {
-        var sysvar = Acad.SystemVariableCollection.getSystemVariable('plinetype');
-        var result = 'plinetype\n';
-        result = result + 'type:' + sysvar.valueType + '\n';
-        result = result + 'value:' + sysvar.value + '\n';
-        alert(result);
-
-
-    }
-</script>
 </html>
